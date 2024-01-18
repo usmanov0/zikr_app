@@ -4,10 +4,11 @@ type Pray struct {
 	Id         int
 	Language   string
 	Definition string
-	CountPray  int
 }
 
 type PrayRepository interface {
 	Save(pray *Pray) error
-	UpdaterCount() error
+	Read(prayId int) (*Pray, error)
+	Put(prayId int, language, definition string) error
+	Delete(prayId int) error
 }
